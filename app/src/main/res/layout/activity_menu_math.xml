@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    tools:context=".ui.activity.MenuMathActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:id="@+id/appbar"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/bg_appbar_math"
+        android:paddingStart="20dp"
+        tools:ignore="RtlSymmetry">
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="@string/back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/title_conversion"
+            android:fontFamily="@font/palanquin"
+            android:textSize="22sp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginStart="10dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result"
+        android:fontFamily="@font/sen"
+        android:textSize="16sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorGrey"
+        android:layout_marginStart="30dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar"
+        android:padding="20dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/bg_result_math"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/resultConvert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result"
+                android:fontFamily="@font/palanquin"
+                android:textSize="26sp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="30dp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/containerResult"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/colorSecond">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPanjang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/panjang"
+                        android:fontFamily="@font/sen"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_spinner">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerSatuanAwal"
+                        android:layout_width="150dp"
+                        android:layout_height="54dp"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGrey"
+                android:textSize="14sp"
+                android:fontFamily="@font/sen"
+                android:text="@string/convert_to"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerSatuanAkhir"
+                    android:layout_width="365dp"
+                    android:layout_height="50dp"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <Button
+                    android:id="@+id/buttonConvert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/convert"
+                    android:fontFamily="@font/palanquin"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:padding="16dp"
+                    android:layout_marginVertical="5dp"
+                    tools:ignore="ButtonStyle,UnusedAttribute" />
+
+                <Button
+                    android:id="@+id/buttonResetConvert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reset"
+                    android:fontFamily="@font/palanquin"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorAlert"
+                    android:padding="16dp"
+                    android:layout_marginVertical="5dp"
+                    tools:ignore="ButtonStyle,UnusedAttribute" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
