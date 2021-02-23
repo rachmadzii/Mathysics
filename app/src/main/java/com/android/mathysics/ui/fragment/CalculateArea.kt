@@ -18,14 +18,16 @@ class CalculateArea : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_calculate_area, container, false)
 
         view.buttonCalculateArea.setOnClickListener{
-            if(etPanjangArea.text?.isEmpty()!!) {
-                Toast.makeText(context, "Empty Panjang", Toast.LENGTH_SHORT).show()
-            }
-            else if(etLebarArea.text?.isEmpty()!!) {
-                Toast.makeText(context, "Empty Lebar", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                calculate()
+            when {
+                etPanjangArea.text?.isEmpty()!! -> {
+                    Toast.makeText(context, "Length value cannot be empty", Toast.LENGTH_SHORT).show()
+                }
+                etLebarArea.text?.isEmpty()!! -> {
+                    Toast.makeText(context, "Width value cannot be empty", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    calculate()
+                }
             }
         }
 
@@ -36,7 +38,8 @@ class CalculateArea : Fragment() {
         return view
     }
 
-    fun calculate() {
+    @SuppressLint("SetTextI18n")
+    private fun calculate() {
         val length = etPanjangArea.text.toString().toDouble()
         val width = etLebarArea.text.toString().toDouble()
         val calculate = length * width
@@ -45,7 +48,8 @@ class CalculateArea : Fragment() {
         resultArea.text = "$result M2"
     }
 
-    fun reset() {
+    @SuppressLint("SetTextI18n")
+    private fun reset() {
         resultArea.text = "0 M2"
         etPanjangArea.text?.clear()
         etLebarArea.text?.clear()

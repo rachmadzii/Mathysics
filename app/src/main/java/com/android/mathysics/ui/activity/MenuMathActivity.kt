@@ -1,5 +1,6 @@
 package com.android.mathysics.ui.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -8,12 +9,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.mathysics.R
 import kotlinx.android.synthetic.main.activity_menu_math.*
+import kotlin.math.pow
 
 class MenuMathActivity : AppCompatActivity() {
-    var unit = arrayOf("KM", "HM", "DAM", "M", "DM", "CM", "MM") // pilihan spinner
-    var satuanAwal: String = "" // default
-    var satuanAkhir: String = "" // default
-    var result: Double = 0.0 // default
+    private var unit = arrayOf("KM", "HM", "DAM", "M", "DM", "CM", "MM") // pilihan spinner
+    private var satuanAwal: String = "" // default
+    private var satuanAkhir: String = "" // default
+    private var result: Double = 0.0 // default
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,7 @@ class MenuMathActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                satuanAwal = unit.get(position)
+                satuanAwal = unit[position]
             }
         }
 
@@ -40,13 +42,13 @@ class MenuMathActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                satuanAkhir = unit.get(position)
+                satuanAkhir = unit[position]
             }
         }
 
         buttonConvert.setOnClickListener{
             if(etPanjang.text?.isEmpty()!!) {
-                Toast.makeText(this, "Empty Panjang", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Length value cannot be empty", Toast.LENGTH_SHORT).show()
             }
             else {
                 calculate()
@@ -56,36 +58,43 @@ class MenuMathActivity : AppCompatActivity() {
         buttonResetConvert.setOnClickListener{
             reset()
         }
+
+        buttonBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
+    @SuppressLint("SetTextI18n")
     fun calculate(){
-        var value = etPanjang.text.toString().toDouble() // value panjang dari user
-        var oldUnit = unit.indexOf(satuanAwal) // satuan lama
-        var newUnit = unit.indexOf(satuanAkhir) // satuan baru yang akan dikonversi
+        val value = etPanjang.text.toString().toDouble() // value panjang dari user
+        val oldUnit = unit.indexOf(satuanAwal) // satuan lama
+        val newUnit = unit.indexOf(satuanAkhir) // satuan baru yang akan dikonversi
 
-        if(oldUnit > newUnit) result = convert("up", newUnit, oldUnit, value)
-        else if(oldUnit < newUnit) result = convert("down", newUnit, oldUnit, value)
-        else result = value
+        result = when {
+            oldUnit > newUnit -> convert("up", newUnit, oldUnit, value)
+            oldUnit < newUnit -> convert("down", newUnit, oldUnit, value)
+            else -> value
+        }
 
         resultConvert.text = "$result $satuanAkhir"
     }
 
-    fun convert(convertTo: String, newUnit: Int, oldUnit: Int, value: Double): Double {
-        var diff: Int
+    private fun convert(convertTo: String, newUnit: Int, oldUnit: Int, value: Double): Double {
+        val diff: Int
         var result = 0.0
 
-        if(convertTo.equals("up")) {
+        if(convertTo == "up") {
             diff = oldUnit - newUnit
-            result = value / Math.pow(10.0, diff.toDouble())
+            result = value / 10.0.pow(diff.toDouble())
         }
-        else if(convertTo.equals("down")) {
+        else if(convertTo == "down") {
             diff = newUnit - oldUnit
-            result = value * Math.pow(10.0, diff.toDouble())
+            result = value * 10.0.pow(diff.toDouble())
         }
         return result
     }
 
-    fun reset() {
+    private fun reset() {
         resultConvert.text = "0"
         etPanjang.text?.clear()
         etPanjang.clearFocus()

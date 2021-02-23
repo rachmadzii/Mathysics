@@ -40,8 +40,7 @@ class MenuPhysicsActivity : AppCompatActivity() {
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.content, fragment, fragment.javaClass.getSimpleName())
+            .replace(R.id.content, fragment, fragment.javaClass.simpleName)
             .commit()
     }
-
 }

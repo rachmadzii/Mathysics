@@ -18,17 +18,19 @@ class CalculateVolume : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_calculate_volume, container, false)
 
         view.buttonCalculateVolume.setOnClickListener{
-            if(etPanjangVolume.text?.isEmpty()!!) {
-                Toast.makeText(context, "Empty Panjang", Toast.LENGTH_SHORT).show()
-            }
-            else if(etLebarVolume.text?.isEmpty()!!) {
-                Toast.makeText(context, "Empty Lebar", Toast.LENGTH_SHORT).show()
-            }
-            else if(etTinggiVolume.text?.isEmpty()!!) {
-                Toast.makeText(context, "Empty Tinggi", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                calculate()
+            when {
+                etPanjangVolume.text?.isEmpty()!! -> {
+                    Toast.makeText(context, "Length value cannot be empty", Toast.LENGTH_SHORT).show()
+                }
+                etLebarVolume.text?.isEmpty()!! -> {
+                    Toast.makeText(context, "Width value cannot be empty", Toast.LENGTH_SHORT).show()
+                }
+                etTinggiVolume.text?.isEmpty()!! -> {
+                    Toast.makeText(context, "Height value cannot be empty", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    calculate()
+                }
             }
         }
 
@@ -39,7 +41,8 @@ class CalculateVolume : Fragment() {
         return view
     }
 
-    fun calculate() {
+    @SuppressLint("SetTextI18n")
+    private fun calculate() {
         val length = etPanjangVolume.text.toString().toDouble()
         val width = etLebarVolume.text.toString().toDouble()
         val height = etTinggiVolume.text.toString().toDouble()
@@ -49,7 +52,8 @@ class CalculateVolume : Fragment() {
         resultVolume.text = "$result M3"
     }
 
-    fun reset() {
+    @SuppressLint("SetTextI18n")
+    private fun reset() {
         resultVolume.text = "0 M3"
         etPanjangVolume.text?.clear()
         etLebarVolume.text?.clear()

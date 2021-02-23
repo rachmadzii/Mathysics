@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val intent = intent
-        textUsername.text = intent.getStringExtra("Username")
+        val username = intent.getStringExtra("Username")
+        textUsername.text = username
 
         val menu = ArrayList<Menu>()
         menu.add(Menu("Math", R.drawable.ruler))
