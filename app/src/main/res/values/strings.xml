@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">MATHYSICS</string>
+    <string name="logout">Log out</string>
+    <string name="login">Log in</string>
+    <string name="login_button">Login</string>
+
+    <string name="login_title">HI, GOOD DAY !</string>
+    <string name="login_subtitle">Please sign in to continue.</string>
+    <string name="greeting">Hello, Welcome !</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    <string name="result">Result</string>
+    <string name="result_area">0 M2</string>
+    <string name="result_volume">0 M3</string>
+    <string name="convert_to">Convert to:</string>
+
+    <string name="title">Menu</string>
+    <string name="area">Area</string>
+    <string name="volume">Volume</string>
+
+    <string name="meter">Meter</string>
+    <string name="panjang">Length</string>
+    <string name="lebar">Width</string>
+    <string name="tinggi">Height</string>
+
+    <string name="calculate">Calculate</string>
+    <string name="convert">Convert</string>
+    <string name="reset">Reset</string>
+
+    <string name="title_area">Calculate Area</string>
+    <string name="title_volume">Calculate Volume</string>
+</resources>

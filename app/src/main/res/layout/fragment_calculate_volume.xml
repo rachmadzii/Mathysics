@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.CalculateVolume">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/appbar"
+            android:paddingTop="10dp"
+            android:paddingLeft="30dp"
+            android:background="@drawable/bg_appbar_math">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_volume"
+                android:fontFamily="@font/palanquin"
+                android:textSize="22dp"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/result"
+            android:fontFamily="@font/sen"
+            android:textSize="16sp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/colorGrey"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appbar"
+            android:padding="20dp"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_result_math"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/resultVolume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_volume"
+                    android:fontFamily="@font/palanquin"
+                    android:textSize="26sp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/colorPrimary"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/containerResult"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/colorSecond">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPanjangVolume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/panjang"
+                        android:fontFamily="@font/sen"
+                        android:inputType="numberDecimal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="14sp"
+                    android:text="@string/meter"
+                    android:fontFamily="@font/sen"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleTint="@color/colorAccent"
+                    app:boxStrokeColor="@color/colorSecond">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLebarVolume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lebar"
+                        android:fontFamily="@font/sen"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="14sp"
+                    android:text="@string/meter"
+                    android:fontFamily="@font/sen"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/colorSecond">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTinggiVolume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tinggi"
+                        android:fontFamily="@font/sen"
+                        android:inputType="numberDecimal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="14sp"
+                    android:text="@string/meter"
+                    android:fontFamily="@font/sen"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonCalculateVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calculate"
+                        android:fontFamily="@font/palanquin"
+                        android:textColor="@color/colorWhite"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:padding="16dp"
+                        android:layout_marginVertical="5dp"/>
+
+                    <Button
+                        android:id="@+id/buttonResetVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reset"
+                        android:fontFamily="@font/palanquin"
+                        android:textColor="@color/colorWhite"
+                        android:backgroundTint="@color/colorAlert"
+                        android:padding="16dp"
+                        android:layout_marginVertical="5dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
