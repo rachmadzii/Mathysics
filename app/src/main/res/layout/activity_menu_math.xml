@@ -67,7 +67,7 @@
                 android:id="@+id/resultConvert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/result"
+                android:text="@string/result_convert"
                 android:fontFamily="@font/palanquin"
                 android:textSize="26sp"
                 android:layout_marginTop="60dp"
@@ -118,13 +118,13 @@
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
+                    android:layout_margin="4.5dp"
                     android:background="@drawable/bg_spinner">
 
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/spinnerSatuanAwal"
                         android:layout_width="150dp"
-                        android:layout_height="54dp"/>
+                        android:layout_height="53dp"/>
 
                 </FrameLayout>
 

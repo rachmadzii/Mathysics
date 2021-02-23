@@ -11,6 +11,7 @@
     <string name="password">Password</string>
 
     <string name="result">Result</string>
+    <string name="result_convert">0</string>
     <string name="result_area">0 M2</string>
     <string name="result_volume">0 M3</string>
     <string name="convert_to">Convert to:</string>
